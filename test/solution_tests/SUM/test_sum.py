@@ -9,6 +9,7 @@ class TestSum():
         assert sum_solution.compute(2, 3) == 5
 
     def test_sum3(self):
-        assert sum_solution.compute(3, 4) == 8
+        assert sum_solution.compute(3, 4) == 7
+
 
 
