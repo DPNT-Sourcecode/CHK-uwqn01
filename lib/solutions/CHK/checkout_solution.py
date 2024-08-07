@@ -6,7 +6,8 @@ def checkout(skus: str) -> int:
     if skus == "":
         return 0
     # if the items entered is not A,B,C,D then also want to return -1
-    list_of_items: list = skus.split(",")
+    if "," in skus:
+        list_of_items: list = skus.split(",")
     checkout_dict = {}
     # create a dictionary where the grocery item is the key and the value is a count of each item
     for item in list_of_items:
@@ -26,4 +27,5 @@ def checkout(skus: str) -> int:
             checkout_dict[grocery_item] = (count_grocery_item % special_offers[grocery_item][0])
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
