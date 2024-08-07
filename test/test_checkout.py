@@ -89,7 +89,7 @@ def test_checkout7():
 
 def test_checkout8():
     basket = checkout("aaaa")
-    assert basket == 180
+    assert basket == -1
 
 def test_checkout9():
     basket = checkout("-")
@@ -119,5 +119,6 @@ def test_checkout12():
     assert checkout("BABDDCAC") == 215
     assert checkout("AAABB") == 175
     assert checkout("ABCDCBAABCABBAAA") == 505
+
 
 
