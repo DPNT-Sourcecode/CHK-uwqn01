@@ -76,9 +76,11 @@ def test_checkout5():
     basket = checkout("D")
     assert basket == 15
 
+
 def test_checkout6():
     basket = checkout("a")
     assert basket == 50
 
-
-
+def test_checkout7():
+    basket = checkout("AAAA")
+    assert basket == 180
