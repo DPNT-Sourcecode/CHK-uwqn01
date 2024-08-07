@@ -119,6 +119,3 @@ def test_checkout12():
     assert checkout("BABDDCAC") == 215
     assert checkout("AAABB") == 175
     assert checkout("ABCDCBAABCABBAAA") == 505
-
-
-
