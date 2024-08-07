@@ -15,5 +15,7 @@ def checkout(skus: str) -> int:
     for grocery_item in checkout_dict:
         if grocery_item in special_offers:
             count_grocery_item = checkout_dict[grocery_item] #5
-            count_special_offers = count_grocery_item  special_offers[grocery_item]
+            special_offers_price = (count_grocery_item // special_offers[grocery_item][0])*special_offers[grocery_item][1]
+            checkout_dict[grocery_item] = (count_grocery_item % special_offers[grocery_item][0])
+
 
