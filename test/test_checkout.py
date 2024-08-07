@@ -79,7 +79,7 @@ def test_checkout5():
 
 def test_checkout6():
     basket = checkout("a")
-    assert basket == 50
+    assert basket == -1
 
 
 def test_checkout7():
@@ -90,4 +90,34 @@ def test_checkout7():
 def test_checkout8():
     basket = checkout("aaaa")
     assert basket == 180
+
+def test_checkout9():
+    basket = checkout("-")
+    assert basket == -1
+
+
+def test_checkout10():
+    assert checkout("ABCa") == -1
+
+
+def test_checkout11():
+    assert checkout("AxA") == -1
+
+
+def test_checkout12():
+    assert checkout("ABCD") == 115
+    assert checkout("AA") == 100
+    assert checkout("AAA") == 130
+    assert checkout("AAAA") == 180
+    assert checkout("AAAAA") == 230
+    assert checkout("AAAAAA") == 260
+    assert checkout("B") == 30
+    assert checkout("BB") == 45
+    assert checkout("BBB") == 75
+    assert checkout("BBBB") == 90
+    assert checkout("ABCDABCD") == 215
+    assert checkout("BABDDCAC") == 215
+    assert checkout("AAABB") == 175
+    assert checkout("ABCDCBAABCABBAAA") == 505
+
 
