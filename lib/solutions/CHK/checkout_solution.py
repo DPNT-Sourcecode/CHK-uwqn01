@@ -36,7 +36,7 @@ special_offers = {
         Deal(45,5)
     ],
     "K": [
-        Deal(150,2),
+        Deal(120,2),
     ],
     "P": [
         Deal(200,5)
@@ -118,6 +118,7 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
 
