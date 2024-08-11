@@ -50,13 +50,13 @@ special_offers = {
     ]
 }
 
-
+group_offers = []
 class GroupOffers():
     def __init__(self, grp_items: list, qty_req: int, price: int):
         self.grp_items = grp_items
         self.qty_req = qty_req
         self.price = price
-        group_offers = grp_items
+
 
 def checkout(skus: str) -> int:
     if skus == "":
@@ -96,5 +96,6 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
