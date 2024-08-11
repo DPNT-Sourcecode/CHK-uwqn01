@@ -118,7 +118,7 @@ def test_checkout12():
     assert checkout("ABCDABCD") == 215
     assert checkout("BABDDCAC") == 215
     assert checkout("AAABB") == 175
-    assert checkout("ABCDCBAABCABBAAA") == 475
+    assert checkout("AAAAAAABBBBBCCCD") == (200)+(2*50)+(5*30)+(3*20)+(15)
 
 
 def test_checkout13():
@@ -127,4 +127,5 @@ def test_checkout13():
     assert checkout("AECDEE") == 205
     assert checkout("ABEEEE") == 210
     assert checkout("ABBEEEE") == 220
+
 
