@@ -13,7 +13,7 @@ bogoff = {
     "F": [BogoffDeal(3, 1, "F")],
     "N": [BogoffDeal(3, 1, "M")],
     "R": [BogoffDeal(3, 1, "Q")],
-    "U": [BogoffDeal(3, 1, "U")],
+    "U": [BogoffDeal(4, 1, "U")],
 }
 
 
@@ -90,5 +90,4 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
-
 
