@@ -156,6 +156,9 @@ def test_checkout18():
     assert checkout("UUU") == 120
     assert checkout("UUUU") == 120
 
+def test_checkout19():
+    assert checkout("ZZZX") ==
+
 # id = CHK_R4_002, req = checkout(""), resp = 0
 # id = CHK_R4_003, req = checkout("A"), resp = 50
 # id = CHK_R4_004, req = checkout("B"), resp = 30
@@ -297,4 +300,5 @@ def test_checkout18():
 # id = CHK_R4_140, req = checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"), resp = 1880
 # id = CHK_R4_141, req = checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH"), resp = 1640
 # id = CHK_R4_001, req = checkout("PPPPQRUVPQRUVPQRUVSU"), resp = 740
+
 
