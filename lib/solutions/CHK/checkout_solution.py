@@ -50,12 +50,15 @@ special_offers = {
     ]
 }
 
-group_offers = []
-class GroupOffers():
+
+class GroupOffer():
     def __init__(self, grp_items: list, qty_req: int, price: int):
         self.grp_items = grp_items
         self.qty_req = qty_req
         self.price = price
+
+
+group_offer = GroupOffer(["Z","S", "T", "Y", "X"], 3, 45)
 
 
 def checkout(skus: str) -> int:
@@ -76,6 +79,24 @@ def checkout(skus: str) -> int:
             checkout_dict[item] += 1
     # look at the special offers and find the count of the items that exist in the special_offers dict
     total = 0
+    # checking for the group offers
+    sum_eligble_qnt = 0
+    for offer_item in group_offer.grp_items:
+        if checkout_dict[offer_item] in group_offer.grp_items:
+            sum_eligble_qnt += checkout_dict[offer_item]
+
+    qty_eligible_grp_deal = (sum_eligble_qnt//group_offer.qty_req)*group_offer.qty_req
+    total = (sum_eligble_qnt//group_offer.qty_req)*group_offer.price
+    for offer_item in group_offer.grp_items:
+        if offer_item in checkout_dict:
+            if checkout_dict[offer_item] < qty_eligible_grp_deal:
+                checkout_dict[offer_item] = 0
+                qty_eligible_grp_deal -= checkout_dict[offer_item]
+            if checkout_dict[offer_item] > qty_eligible_grp_deal:
+                checkout_dict[offer_item] -= qty_eligible_grp_deal
+                qty_eligible_grp_deal = 0
+
+        # checking for bogoff offers
     for grocery_item in checkout_dict:
         if grocery_item not in price_list:
             return -1
@@ -85,7 +106,7 @@ def checkout(skus: str) -> int:
                 checkout_dict[bogoff[grocery_item][0].free_item] -= eligible_free_qty
             else:
                 checkout_dict[bogoff[grocery_item][0].free_item] = 0
-
+    # checking for special qty price offers
     for grocery_item in checkout_dict:
         if grocery_item in special_offers:
             offer_num = len(special_offers[grocery_item])
@@ -96,4 +117,5 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
