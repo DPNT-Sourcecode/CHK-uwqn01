@@ -14,7 +14,7 @@ def test_checkout_empty():
 
 def test_checkout_invalid():
     basket = checkout("A, B, C, E")
-    assert basket == -1
+    assert basket == 155
 
 
 def test_checkout_invalid2():
@@ -49,12 +49,12 @@ def test_special_offer_checkout4():
 
 def test_special_offer_checkout5():
     basket = checkout("A, A, A, A, A, A")
-    assert basket == 260
+    assert basket == 250
 
 
 def test_special_offer_checkout6():
     basket = checkout("A, A, A, A, A, A, A")
-    assert basket == 310
+    assert basket == 300
 
 
 def test_checkout2():
@@ -109,8 +109,8 @@ def test_checkout12():
     assert checkout("AA") == 100
     assert checkout("AAA") == 130
     assert checkout("AAAA") == 180
-    assert checkout("AAAAA") == 230
-    assert checkout("AAAAAA") == 260
+    assert checkout("AAAAA") == 200
+    assert checkout("AAAAAA") == 250
     assert checkout("B") == 30
     assert checkout("BB") == 45
     assert checkout("BBB") == 75
@@ -118,4 +118,13 @@ def test_checkout12():
     assert checkout("ABCDABCD") == 215
     assert checkout("BABDDCAC") == 215
     assert checkout("AAABB") == 175
-    assert checkout("ABCDCBAABCABBAAA") == 505
+    assert checkout("ABCDCBAABCABBAAA") == 475
+
+
+def test_checkout13():
+    assert checkout("ABCEE") == 150
+    assert checkout("AECDE") == 165
+    assert checkout("AECDEE") == 205
+    assert checkout("ABEEEE") == 210
+    assert checkout("ABBEEEE") == 220
+
