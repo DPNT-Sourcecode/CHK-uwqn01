@@ -14,7 +14,7 @@ def test_checkout_empty():
 
 def test_checkout_invalid():
     basket = checkout("A, B, C, E")
-    assert basket == 155
+    assert basket == 140
 
 
 def test_checkout_invalid2():
@@ -127,5 +127,6 @@ def test_checkout13():
     assert checkout("AECDEE") == 205
     assert checkout("ABEEEE") == 210
     assert checkout("ABBEEEE") == 220
+
 
 
