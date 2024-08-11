@@ -142,8 +142,15 @@ def test_checkout15():
     assert checkout("AAF") == 110
     assert checkout("AAAAAFFFF") == 230
 
+
 def test_checkout16():
     assert checkout("AAAEEBFFF") == 230
     assert checkout("FFFAAAEEBF") == 240
+
+
+def test_checkout17():
+    assert checkout("AAAEEBFFFZ") == 280
+    assert checkout("FFFAAAEEBFVVVV") == 420
+
 
 
