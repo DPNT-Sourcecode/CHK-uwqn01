@@ -52,7 +52,7 @@ def checkout(skus: str) -> int:
             return -1
         if grocery_item in bogoff and bogoff[grocery_item][0].free_item in checkout_dict: #reduce the count of B in the checkout by 1 for every 2 Es
             eligible_free_qty = checkout_dict[grocery_item]//bogoff[grocery_item][0].purchase_qty
-            if checkout_dict[bogoff[grocery_item][0].free_item] > eligible_free_qty:
+            if checkout_dict[bogoff[grocery_item][0].free_item] >= eligible_free_qty:
                 checkout_dict[bogoff[grocery_item][0].free_item] -= eligible_free_qty
             else:
                 checkout_dict[bogoff[grocery_item][0].free_item] = 0
@@ -66,6 +66,7 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
 
