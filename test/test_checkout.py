@@ -165,6 +165,7 @@ def test_checkout19():
     assert checkout("ZZZZTXZYTSAA") == 235+17
     assert checkout("XYTTSAAAEEB") == 45 + 37 + 130 + 80
     assert checkout("TTSAAAEEB") == 45 + 130 + 80
+    assert checkout("ZZZZXTST") == 90 + (17+20)
 
 
 # id = CHK_R4_002, req = checkout(""), resp = 0
@@ -308,6 +309,7 @@ def test_checkout19():
 # id = CHK_R4_140, req = checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"), resp = 1880
 # id = CHK_R4_141, req = checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH"), resp = 1640
 # id = CHK_R4_001, req = checkout("PPPPQRUVPQRUVPQRUVSU"), resp = 740
+
 
 
 
