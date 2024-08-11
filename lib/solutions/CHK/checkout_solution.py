@@ -80,13 +80,13 @@ def checkout(skus: str) -> int:
     # look at the special offers and find the count of the items that exist in the special_offers dict
     total = 0
     # checking for the group offers
-    sum_eligble_qnt = 0
+    sum_eligible_qnt = 0
     for offer_item in group_offer.grp_items:
-        if checkout_dict[offer_item] in group_offer.grp_items:
-            sum_eligble_qnt += checkout_dict[offer_item]
+        if offer_item in checkout_dict:
+            sum_eligible_qnt += checkout_dict[offer_item]
 
-    qty_eligible_grp_deal = (sum_eligble_qnt//group_offer.qty_req)*group_offer.qty_req
-    total = (sum_eligble_qnt//group_offer.qty_req)*group_offer.price
+    qty_eligible_grp_deal = (sum_eligible_qnt//group_offer.qty_req)*group_offer.qty_req
+    total = (sum_eligible_qnt//group_offer.qty_req)*group_offer.price
     for offer_item in group_offer.grp_items:
         if offer_item in checkout_dict:
             if checkout_dict[offer_item] < qty_eligible_grp_deal:
@@ -117,5 +117,6 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
