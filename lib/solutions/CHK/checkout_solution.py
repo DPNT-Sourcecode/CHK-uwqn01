@@ -59,11 +59,13 @@ def checkout(skus: str) -> int:
 
         if grocery_item in special_offers:
             offer_num = len(special_offers[grocery_item])
-            for special_offer in range(offer_num):
+            for deal in special_offers[grocery_item]:
                 count_grocery_item = checkout_dict[grocery_item]
-                total += (count_grocery_item // special_offers[grocery_item][special_offer][1])*special_offers[grocery_item][special_offer][0]
-                checkout_dict[grocery_item] = (count_grocery_item % special_offers[grocery_item][special_offer][1])
+                total += ((count_grocery_item // deal.qty) *
+                          deal.price)
+                checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
