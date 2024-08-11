@@ -1,4 +1,4 @@
-price_list = {"A":50, "B":30,"C":20,"D":15,"E":40}
+price_list = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
 class BogoffDeal():
     def __init__(self, purchase_qty: int,free_qty: int,free_item: str):
         self.purchase_qty = purchase_qty
@@ -7,7 +7,8 @@ class BogoffDeal():
 
 
 bogoff = {
-    "E": [BogoffDeal(2, 1, "B")]
+    "E": [BogoffDeal(2, 1, "B")],
+    "F": [BogoffDeal(3, 1, "F")]
 }
 
 
