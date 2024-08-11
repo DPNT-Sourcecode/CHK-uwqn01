@@ -90,10 +90,10 @@ def checkout(skus: str) -> int:
     total = group_off_num * group_offer.price
     for group_offer_item in group_offer.grp_items:
         if group_offer_item in checkout_dict:
-            if checkout_dict[group_offer_item] < qty_eligible_grp_deal:
-                checkout_dict[group_offer_item] = 0
+            if checkout_dict[group_offer_item] <= qty_eligible_grp_deal:
                 qty_eligible_grp_deal -= checkout_dict[group_offer_item]
-            if checkout_dict[group_offer_item] > qty_eligible_grp_deal:
+                checkout_dict[group_offer_item] = 0
+            else:
                 checkout_dict[group_offer_item] -= qty_eligible_grp_deal
                 qty_eligible_grp_deal = 0
 
@@ -118,5 +118,6 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
