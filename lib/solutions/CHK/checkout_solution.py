@@ -57,6 +57,7 @@ def checkout(skus: str) -> int:
             else:
                 checkout_dict[bogoff[grocery_item][0].free_item] = 0
 
+    for grocery_item in checkout_dict:
         if grocery_item in special_offers:
             offer_num = len(special_offers[grocery_item])
             for deal in special_offers[grocery_item]:
@@ -66,6 +67,7 @@ def checkout(skus: str) -> int:
                 checkout_dict[grocery_item] = (count_grocery_item % deal.qty)
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
 
 
