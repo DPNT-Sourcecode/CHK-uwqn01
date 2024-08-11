@@ -1,5 +1,32 @@
-price_list = {"A":50, "B":30,"C":20,"D":15}
-special_offers = {"A":[3,130],"B":[2,45]}
+price_list = {"A":50, "B":30,"C":20,"D":15,"E":40}
+class BogoffDeal():
+    def __init__(self, purchase_qty: int,free_qty: int,free_item: str):
+        self.purchase_qty = purchase_qty
+        self.free_qty = free_qty
+        self.free_item = free_item
+
+
+bogoff = {
+    "E": [BogoffDeal(2, 1, "B")]
+}
+
+
+class Deal():
+    def __init__(self, price: int, qty: int):
+        self.price = price
+        self.qty = qty
+
+
+special_offers = {
+    "A": [
+        Deal(200,5),
+        Deal(130,3)
+    ],
+    "B": [
+        Deal(45,2)
+    ]
+}
+
 
 
 def checkout(skus: str) -> int:
@@ -23,10 +50,15 @@ def checkout(skus: str) -> int:
     for grocery_item in checkout_dict:
         if grocery_item not in price_list:
             return -1
+        if grocery_item in bogoff and bogoff[grocery_item][0].free_item in checkout_dict: #reduce the count of B in the checkout by 1 for every 2 Es
+            if checkout_dict[bogoff[grocery_item][0].free_item] >0:
+                checkout_dict[grocery_item]//bogoff[grocery_item][0].purchase_qty
+
         if grocery_item in special_offers:
             count_grocery_item = checkout_dict[grocery_item]
             total += (count_grocery_item // special_offers[grocery_item][0])*special_offers[grocery_item][1]
             checkout_dict[grocery_item] = (count_grocery_item % special_offers[grocery_item][0])
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
+
 
