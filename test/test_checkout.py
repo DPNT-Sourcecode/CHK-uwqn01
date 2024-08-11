@@ -132,8 +132,3 @@ def test_checkout13():
 def test_checkout14():
     assert checkout("EEEEBBA") == 210
     assert checkout("EEEEBBB") == 190
-
-
-
-
-

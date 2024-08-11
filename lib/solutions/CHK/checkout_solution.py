@@ -68,7 +68,3 @@ def checkout(skus: str) -> int:
         total += checkout_dict[grocery_item]*price_list[grocery_item]
     return total
 
-
-
-
-
